@@ -19,10 +19,11 @@ module.exports = defineConfig({
   },
   // 启动node server的方法
   devServer: {
-    // app就是express的一个实例 根据这个实例可以搭建后端路由
+    open: true,
+    // webpack4.x的方法  app就是express的一个实例 根据这个实例可以搭建后端路由
     onBeforeSetupMiddleware: function (devServer) {
       if (!devServer) {
-        throw new Error('webpack-dev-server is not defined');
+        throw new Error('webpack-dev-server is not defined')
       }
       registerRouter(devServer.app)
     }
